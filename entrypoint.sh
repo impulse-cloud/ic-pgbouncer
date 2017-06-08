@@ -19,7 +19,8 @@ if [ ! -f ${PG_CONFIG_DIR}/pgbouncer.ini ]; then
 [databases]
 * = host=${DB_HOST:?"Setup pgbouncer config error! \
       You must set DB_HOST env"} \
-port=${DB_PORT:-5432} user=${DB_USER:-postgres} \
+port=${DB_PORT:-5432} \
+${DB_USER:+user=${DB_USER}} \
 ${DB_PASSWORD:+password=${DB_PASSWORD}}
 
 [pgbouncer]
