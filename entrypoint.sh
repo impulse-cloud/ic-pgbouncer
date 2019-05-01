@@ -16,11 +16,17 @@ if [ ! -f ${PG_CONFIG_DIR}/pgbouncer.ini ]; then
 # Config file is in “ini” format. Section names are between “[” and “]”.
 # Lines starting with “;” or “#” are taken as comments and ignored.
 # The characters “;” and “#” are not recognized when they appear later in the line.
+#[databases]
+#* = host=${DB_HOST:?"Setup pgbouncer config error! You must set DB_HOST env"} \
+#port=${DB_PORT:-5432} \
+#${DB_USER:+user=${DB_USER}} \
+#${DB_PASSWORD:+password=${DB_PASSWORD}}
 [databases]
-* = host=${DB_HOST:?"Setup pgbouncer config error! You must set DB_HOST env"} \
-port=${DB_PORT:-5432} \
-${DB_USER:+user=${DB_USER}} \
-${DB_PASSWORD:+password=${DB_PASSWORD}}
+default = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_DEFAULT}
+reports = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_REPORTS}
+dashlets = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_DASHLETS}
+previews = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_PREVIEWS}
+silverlining = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME}
 
 [pgbouncer]
 # Generic settings
