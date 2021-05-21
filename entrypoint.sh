@@ -26,6 +26,7 @@ default = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZ
 reports = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_REPORTS}
 dashlets = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_DASHLETS}
 previews = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_PREVIEWS}
+celery = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME} pool_size=${POOL_SIZE_CELERY}
 silverlining = host=${DB_HOST} port=${DB_PORT} dbname=${DB_NAME}
 
 [pgbouncer]
